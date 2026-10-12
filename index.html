@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUTO FARM - Budidaya & Pemasok Ikan Air Tawar Segar (Nila Merah, Mas, Gurame)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        aqua: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        ocean: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-aqua-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-ocean-700 via-aqua-600 to-teal-400 flex items-center justify-center text-white shadow-lg shadow-aqua-600/30">
+                        <i class="fa-solid fa-fish-fins text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight text-slate-900">BUTO<span class="text-aqua-600">FARM</span></span>
+                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Aquaculture & Freshwater Fish</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-7">
+                    <a href="#beranda" class="text-sm font-semibold text-aqua-600 transition hover:text-aqua-700">Beranda</a>
+                    <a href="#tentang" class="text-sm font-medium text-slate-600 transition hover:text-aqua-600">Tentang Kami</a>
+                    <a href="#produk" class="text-sm font-medium text-slate-600 transition hover:text-aqua-600">Jenis Ikan</a>
+                    <a href="#keunggulan" class="text-sm font-medium text-slate-600 transition hover:text-aqua-600">Keunggulan</a>
+                    <a href="#galeri" class="text-sm font-medium text-slate-600 transition hover:text-aqua-600">Galeri Kolam</a>
+                    <a href="#kalkulator" class="text-sm font-medium text-slate-600 transition hover:text-aqua-600">Estimasi Pesanan</a>
+                    <a href="#kontak" class="text-sm font-medium text-slate-600 transition hover:text-aqua-600">Kontak</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="https://wa.me/6283874004986?text=Halo%20Buto%20Farm,%20saya%20tertarik%20pemesanan%20ikan%20air%20tawar." target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-aqua-600 to-ocean-600 hover:from-aqua-700 hover:to-ocean-700 text-white font-medium text-sm shadow-md shadow-aqua-600/20 transition transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Pesan via WA</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" aria-label="Menu Mobile" class="p-2 rounded-xl text-slate-600 hover:text-aqua-600 hover:bg-aqua-50 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-4 pt-2 pb-6 space-y-3">
+            <a href="#beranda" class="block px-3 py-2 rounded-lg text-base font-medium text-aqua-600 bg-aqua-50">Beranda</a>
+            <a href="#tentang" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-600 hover:text-aqua-600 hover:bg-slate-50">Tentang Kami</a>
+            <a href="#produk" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-600 hover:text-aqua-600 hover:bg-slate-50">Jenis Ikan</a>
+            <a href="#keunggulan" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-600 hover:text-aqua-600 hover:bg-slate-50">Keunggulan</a>
+            <a href="#galeri" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-600 hover:text-aqua-600 hover:bg-slate-50">Galeri Kolam</a>
+            <a href="#kalkulator" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-600 hover:text-aqua-600 hover:bg-slate-50">Estimasi Pesanan</a>
+            <a href="#kontak" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-600 hover:text-aqua-600 hover:bg-slate-50">Kontak</a>
+            <div class="pt-2">
+                <a href="https://wa.me/6283874004986?text=Halo%20Buto%20Farm,%20saya%20tertarik%20pemesanan%20ikan%20air%20tawar." target="_blank" class="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-aqua-600 hover:bg-aqua-700 text-white font-medium text-sm shadow-md">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Pesan via WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative bg-gradient-to-b from-ocean-50/80 via-aqua-50/40 to-white overflow-hidden py-16 lg:py-28">
+        <div class="absolute top-0 right-0 -mt-16 -mr-16 w-96 h-96 bg-aqua-200/50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -mb-16 -ml-16 w-96 h-96 bg-ocean-200/50 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-aqua-100 text-aqua-800 text-xs font-semibold tracking-wide uppercase border border-aqua-200">
+                        <span class="w-2.5 h-2.5 rounded-full bg-aqua-600 animate-ping"></span>
+                        Budidaya Air Tawar Higienis & Berkualitas
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        Pemasok Ikan Air Tawar Segar <br class="hidden sm:inline">
+                        <span class="bg-gradient-to-r from-ocean-600 to-aqua-600 bg-clip-text text-transparent">Mas, Nila Merah, & Gurame</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Penyedia benih unggul dan ikan konsumsi segar langsung dari kolam budidaya terkelola. Menjamin kualitas daging segar, gurih, bebas lumpur, dan dipasok secara berkelanjutan.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#kalkulator" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-aqua-600 to-ocean-600 hover:from-aqua-700 hover:to-ocean-700 text-white font-semibold shadow-lg shadow-aqua-600/30 transition transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span>Hitung & Pesan Sekarang</span>
+                        </a>
+                        <a href="#produk" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-semibold border border-slate-200 shadow-sm transition">
+                            <i class="fa-solid fa-fish text-aqua-600"></i>
+                            <span>Lihat Jenis Ikan</span>
+                        </a>
+                    </div>
+
+                    <!-- Stats Badges -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-200/80 max-w-xl mx-auto lg:mx-0">
+                        <div class="bg-white/60 p-3 rounded-2xl border border-slate-100 shadow-sm">
+                            <p class="text-2xl sm:text-3xl font-extrabold text-ocean-700">15+ Ton</p>
+                            <p class="text-xs text-slate-500 font-medium">Panen / Bulan</p>
+                        </div>
+                        <div class="bg-white/60 p-3 rounded-2xl border border-slate-100 shadow-sm">
+                            <p class="text-2xl sm:text-3xl font-extrabold text-aqua-700">500+</p>
+                            <p class="text-xs text-slate-500 font-medium">Pelanggan Setia</p>
+                        </div>
+                        <div class="bg-white/60 p-3 rounded-2xl border border-slate-100 shadow-sm">
+                            <p class="text-2xl sm:text-3xl font-extrabold text-teal-700">50+</p>
+                            <p class="text-xs text-slate-500 font-medium">Mitra Resto & Pasar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-ocean-500 to-aqua-500 rounded-3xl blur-xl opacity-30"></div>
+                        <img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&q=80&w=800" 
+                             alt="Budidaya Ikan Buto Farm" 
+                             class="relative rounded-2xl shadow-2xl object-cover w-full h-[420px]"
+                             onerror="this.src='https://placehold.co/600x450/0d9488/ffffff?text=Kolam+Budidaya+Buto+Farm'">
+                        
+                        <!-- Floating Badges -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-slate-100">
+                            <div class="w-12 h-12 rounded-xl bg-aqua-100 flex items-center justify-center text-aqua-600 text-2xl font-bold">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-medium">Pengiriman</p>
+                                <p class="text-sm font-bold text-slate-800">Garansi Ikan Hidup & Segar</p>
+                            </div>
+                        </div>
+
+                        <div class="absolute -top-6 -right-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-slate-100 hidden sm:flex">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl font-bold">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-medium">Kualitas Air</p>
+                                <p class="text-xs font-bold text-slate-800">Sirkulasi & Pakan Organik</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami Section -->
+    <section id="tentang" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=800" 
+                             alt="Kolam Ikan Buto Farm" 
+                             class="rounded-2xl shadow-lg object-cover w-full h-[380px]"
+                             onerror="this.src='https://placehold.co/600x400/0284c7/ffffff?text=Fasilitas+Budidaya'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent rounded-2xl"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-white">
+                            <p class="text-xs uppercase tracking-wider font-semibold opacity-90">Kawasan Perikanan Terpadu</p>
+                            <h4 class="text-xl font-bold">Kolam Sirkulasi Air Mengalir</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-xs font-bold text-aqua-600 uppercase tracking-widest bg-aqua-50 px-3 py-1.5 rounded-full border border-aqua-100">Tentang BUTO FARM</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Komitmen Menyajikan Ikan Air Tawar Berkualitas Unggul</h2>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">
+                        <strong>BUTO FARM</strong> adalah pusat budidaya dan perikanan air tawar terpadu yang berfokus pada pengembangbiakan bibit unggul serta pembesaran ikan konsumsi berkualitas tinggi. Kami secara khusus membudidayakan **Ikan Nila Merah, Ikan Mas, dan Ikan Gurame**.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        Dengan sistem tata kelola air alami, sirkulasi yang intensif, serta pemantauan kualitas harian, kami memastikan setiap ikan tumbuh sehat, bebas dari rasa lumpur, dan memiliki tekstur daging yang padat, tebal, serta bernutrisi tinggi.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <i class="fa-solid fa-circle-check text-aqua-600 text-xl mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Bebas Bahan Kimia</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Pemeliharaan alami tanpa antibiotik berbahaya.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <i class="fa-solid fa-circle-check text-aqua-600 text-xl mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Pakan Nutrisi Seimbang</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">Pertumbuhan optimal dan kualitas daging premium.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Katalog Jenis Ikan Unggulan -->
+    <section id="produk" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold text-aqua-600 uppercase tracking-widest bg-aqua-100 px-3 py-1.5 rounded-full">Katalog Perikanan</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Jenis Ikan Unggulan & Benih</h2>
+                <p class="text-slate-600 text-base">
+                    Kami melayani pembelian ikan konsumsi siap panen maupun benih/bibit berkualitas tinggi untuk peternak dan kemitraan.
+                </p>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Product 1: Nila Merah -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-60 overflow-hidden bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&q=80&w=600" 
+                                 alt="Ikan Nila Merah" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                 onerror="this.src='https://placehold.co/400x300/0d9488/ffffff?text=Ikan+Nila+Merah'">
+                            <span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Terfavorit Restoran</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Ikan Nila Merah</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+                                Daging tebal, gurih, dan manis tanpa bau tanah. Sangat disukai oleh rumah makan, restoran bakar/goreng, dan konsumsi harian.
+                            </p>
+                            
+                            <div class="space-y-2 text-xs border-t border-slate-100 pt-3">
+                                <div class="flex justify-between text-slate-600">
+                                    <span>Konsumsi Siap Panen:</span>
+                                    <strong class="text-slate-900">3 - 5 ekor / kg</strong>
+                                </div>
+                                <div class="flex justify-between text-slate-600">
+                                    <span>Tersedia Juga:</span>
+                                    <strong class="text-aqua-700">Benih/Bibit Unggul (3-5 cm)</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href="https://wa.me/6283874004986?text=Halo%20Buto%20Farm,%20saya%20ingin%20memesan%20Ikan%20Nila%20Merah." target="_blank" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-aqua-50 hover:bg-aqua-600 text-aqua-700 hover:text-white font-semibold text-sm transition border border-aqua-200 hover:border-transparent shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Pesan Nila Merah</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 2: Ikan Mas -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-60 overflow-hidden bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1516683018641-547af6c268df?auto=format&fit=crop&q=80&w=600" 
+                                 alt="Ikan Mas" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                 onerror="this.src='https://placehold.co/400x300/0284c7/ffffff?text=Ikan+Mas'">
+                            <span class="absolute top-3 left-3 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Laris di Pasar</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Ikan Mas Segar</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+                                Tekstur lembut dan rasanya lezat khas hidangan tradisional. Dipelihara dengan sirkulasi air jernih sehingga kondisi fisik utuh dan sehat.
+                            </p>
+                            
+                            <div class="space-y-2 text-xs border-t border-slate-100 pt-3">
+                                <div class="flex justify-between text-slate-600">
+                                    <span>Konsumsi Siap Panen:</span>
+                                    <strong class="text-slate-900">4 - 6 ekor / kg</strong>
+                                </div>
+                                <div class="flex justify-between text-slate-600">
+                                    <span>Tersedia Juga:</span>
+                                    <strong class="text-aqua-700">Benih Sehat & Aktif</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href="https://wa.me/6283874004986?text=Halo%20Buto%20Farm,%20saya%20ingin%20memesan%20Ikan%20Mas." target="_blank" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-aqua-50 hover:bg-aqua-600 text-aqua-700 hover:text-white font-semibold text-sm transition border border-aqua-200 hover:border-transparent shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Pesan Ikan Mas</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product 3: Gurame -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-60 overflow-hidden bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1534043464124-3be32fe000c9?auto=format&fit=crop&q=80&w=600" 
+                                 alt="Ikan Gurame" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                 onerror="this.src='https://placehold.co/400x300/0f766e/ffffff?text=Ikan+Gurame'">
+                            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Kelas Premium</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Ikan Gurame Super</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">
+                                Ukuran variatif mulai dari porsi perorangan hingga porsi keluarga besar. Daging padat, renyah saat digoreng, dan kaya protein.
+                            </p>
+                            
+                            <div class="space-y-2 text-xs border-t border-slate-100 pt-3">
+                                <div class="flex justify-between text-slate-600">
+                                    <span>Konsumsi Siap Panen:</span>
+                                    <strong class="text-slate-900">500 gram - 1.2 kg / ekor</strong>
+                                </div>
+                                <div class="flex justify-between text-slate-600">
+                                    <span>Tersedia Juga:</span>
+                                    <strong class="text-aqua-700">Bibit Gurame Siap Tebar</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <a href="https://wa.me/6283874004986?text=Halo%20Buto%20Farm,%20saya%20ingin%20memesan%20Ikan%20Gurame." target="_blank" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-aqua-50 hover:bg-aqua-600 text-aqua-700 hover:text-white font-semibold text-sm transition border border-aqua-200 hover:border-transparent shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Pesan Ikan Gurame</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan Budidaya -->
+    <section id="keunggulan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold text-aqua-600 uppercase tracking-widest bg-aqua-50 px-3 py-1.5 rounded-full border border-aqua-100">Alasan Memilih Kami</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Keunggulan Budidaya BUTO FARM</h2>
+                <p class="text-slate-600 text-base">
+                    Sistem pemeliharaan modern yang mengutamakan mutu, keberlanjutan, dan kepuasan pelanggan.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Advantage 1 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-aqua-50/50 hover:border-aqua-200 transition">
+                    <div class="w-12 h-12 rounded-xl bg-ocean-600 text-white flex items-center justify-center text-xl mb-4 shadow-md shadow-ocean-600/20">
+                        <i class="fa-solid fa-water"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Air Bersih & Alami</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Menggunakan sirkulasi air mengalir kontinu yang disaring alami. Bebas lumpur sehingga rasa ikan gurih dan tidak berbau.
+                    </p>
+                </div>
+
+                <!-- Advantage 2 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-aqua-50/50 hover:border-aqua-200 transition">
+                    <div class="w-12 h-12 rounded-xl bg-aqua-600 text-white flex items-center justify-center text-xl mb-4 shadow-md shadow-aqua-600/20">
+                        <i class="fa-solid fa-wheat-awn"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Pakan Nutrisi Tinggi</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Diberi pakan pelet berprotein tinggi ditambah pakan alami pilihan tanpa campuran zat kimia pemacu yang berbahaya.
+                    </p>
+                </div>
+
+                <!-- Advantage 3 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-aqua-50/50 hover:border-aqua-200 transition">
+                    <div class="w-12 h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center text-xl mb-4 shadow-md shadow-teal-600/20">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Pengiriman Ikan Hidup</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Fasilitas sistem oksigen terstandar untuk pengiriman kondisi hidup, atau sistem es (cold chain) untuk kesegaran optimal.
+                    </p>
+                </div>
+
+                <!-- Advantage 4 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-aqua-50/50 hover:border-aqua-200 transition">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-xl mb-4 shadow-md shadow-emerald-600/20">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Pasokan Skala Besar</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Siap melayani pasokan harian/mingguan secara konsisten untuk restoran, tempat pemancingan, katering, dan pasar lokal.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri & Fasilitas Kolam -->
+    <section id="galeri" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold text-aqua-600 uppercase tracking-widest bg-aqua-100 px-3 py-1.5 rounded-full">Dokumentasi Kolam</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Galeri Fasilitas & Pemanenan</h2>
+                <p class="text-slate-600 text-base">
+                    Intip proses budidaya, penanganan ikan, dan penyortiran ketat di lokasi lokasi kolam Buto Farm.
+                </p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="relative group rounded-2xl overflow-hidden h-64 shadow-sm border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=600" 
+                         alt="Area Kolam Buto Farm" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                         onerror="this.src='https://placehold.co/400x300/0d9488/ffffff?text=Area+Kolam'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <p class="text-white font-semibold text-sm">Kawasan Kolam Terpadu</p>
+                    </div>
+                </div>
+
+                <div class="relative group rounded-2xl overflow-hidden h-64 shadow-sm border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=600" 
+                         alt="Pemanenan Ikan" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                         onerror="this.src='https://placehold.co/400x300/0284c7/ffffff?text=Panen+Ikan'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <p class="text-white font-semibold text-sm">Proses Panen Segar Pagi Hari</p>
+                    </div>
+                </div>
+
+                <div class="relative group rounded-2xl overflow-hidden h-64 shadow-sm border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&q=80&w=600" 
+                         alt="Penyortiran Ukuran" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                         onerror="this.src='https://placehold.co/400x300/0f766e/ffffff?text=Sortir+Ukuran'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <p class="text-white font-semibold text-sm">Penyortiran Ukuran & Mutu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Order Calculator & Form -->
+    <section id="kalkulator" class="py-20 bg-gradient-to-br from-ocean-900 via-slate-900 to-aqua-950 text-white relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-aqua-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold text-aqua-300 uppercase tracking-widest bg-aqua-950/80 px-3 py-1.5 rounded-full border border-aqua-800">Pemesanan Mudah</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Hitung & Pesan Langsung via WhatsApp</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Gunakan formulir simulasi ini untuk menghitung estimasi pemesanan Anda. Setelah terisi, pesan akan otomatis terformat untuk dikirim langsung ke WhatsApp admin Buto Farm.
+                    </p>
+                    
+                    <div class="space-y-4 pt-4 border-t border-slate-800">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-aqua-500/20 text-aqua-400 flex items-center justify-center font-bold">1</div>
+                            <p class="text-xs text-slate-300">Pilih jenis ikan & kualifikasi (Bibit / Konsumsi)</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-aqua-500/20 text-aqua-400 flex items-center justify-center font-bold">2</div>
+                            <p class="text-xs text-slate-300">Tentukan kuantitas kebutuhan (Kg atau Ekor)</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-aqua-500/20 text-aqua-400 flex items-center justify-center font-bold">3</div>
+                            <p class="text-xs text-slate-300">Selesaikan pengiriman pesan otomatis ke WhatsApp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-2xl">
+                        <form id="orderForm" onsubmit="sendWhatsAppOrder(event)" class="space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-200 mb-2">Nama Lengkap / Usaha</label>
+                                    <input type="text" id="custName" required placeholder="Contoh: RM Saung Desa" class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:border-aqua-400 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-200 mb-2">Lokasi Pengiriman (Kota/Kec.)</label>
+                                    <input type="text" id="custLocation" required placeholder="Contoh: Bogor Barat" class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:border-aqua-400 text-sm">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-200 mb-2">Pilih Komoditas Ikan</label>
+                                    <select id="fishType" class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-white focus:outline-none focus:border-aqua-400 text-sm">
+                                        <option value="Ikan Nila Merah">Ikan Nila Merah</option>
+                                        <option value="Ikan Mas">Ikan Mas Segar</option>
+                                        <option value="Ikan Gurame">Ikan Gurame Super</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-200 mb-2">Kategori Produk</label>
+                                    <select id="fishCategory" class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-white focus:outline-none focus:border-aqua-400 text-sm">
+                                        <option value="Ikan Konsumsi (Kg)">Ikan Konsumsi (Dalam Kg)</option>
+                                        <option value="Benih/Bibit Unggul (Ekor)">Benih / Bibit Unggul (Ekor)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-200 mb-2">Jumlah Estimasi (Kg / Ekor)</label>
+                                    <input type="number" id="fishQty" min="1" required placeholder="Masukkan jumlah (misal: 50)" class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:border-aqua-400 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-200 mb-2">Kondisi Pengiriman</label>
+                                    <select id="deliveryOption" class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-white focus:outline-none focus:border-aqua-400 text-sm">
+                                        <option value="Ikan Hidup (Sistem Oksigen)">Ikan Hidup (Sistem Oksigen)</option>
+                                        <option value="Ikan Segar (Pakai Es)">Ikan Segar / Cold Chain</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-200 mb-2">Catatan Tambahan (Opsional)</label>
+                                <textarea id="custNotes" rows="3" placeholder="Contoh: Ukuran 1 kg isi 4 ekor, butuh pasokan rutin harian..." class="w-full px-4 py-3 rounded-xl bg-slate-800/80 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:border-aqua-400 text-sm"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-aqua-500 to-ocean-500 hover:from-aqua-600 hover:to-ocean-600 text-white font-bold text-sm shadow-xl shadow-aqua-500/20 transition flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>Kirim Pesanan ke WhatsApp Admin</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak & Lokasi Section -->
+    <section id="kontak" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold text-aqua-600 uppercase tracking-widest bg-aqua-50 px-3 py-1.5 rounded-full border border-aqua-100">Informasi Kontak</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 mb-4">Hubungi Lokasi Kolam BUTO FARM</h2>
+                <p class="text-slate-600 text-base">
+                    Silakan datang langsung ke lokasi kolam kami atau hubungi tim pemasaran untuk negosiasi kerja sama pasokan rutin.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Contact Card 1 -->
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-ocean-600 text-white flex items-center justify-center text-2xl mb-4 shadow-md shadow-ocean-600/20">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Alamat Kolam</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Kawasan Budidaya Air Tawar BUTO FARM, Jl. Perikanan Sejahtera No. 88, Desa Sukamaju, Jawa Barat.
+                    </p>
+                </div>
+
+                <!-- Contact Card 2 -->
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-aqua-600 text-white flex items-center justify-center text-2xl mb-4 shadow-md shadow-aqua-600/20">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">WhatsApp / Telepon</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-2">
+                        083874004986 (Layanan Fast Response)
+                    </p>
+                    <span class="text-[11px] text-emerald-600 font-semibold bg-emerald-50 px-2.5 py-1 rounded-full">Aktif Setiap Hari</span>
+                </div>
+
+                <!-- Contact Card 3 -->
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center text-2xl mb-4 shadow-md shadow-teal-600/20">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Jam Operasional Kolam</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Senin - Minggu: 06.00 - 17.30 WIB<br>
+                        (Pengambilan & Panen Pagi/Sore)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-ocean-600 to-aqua-500 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-fish-fins text-xl"></i>
+                        </div>
+                        <span class="text-xl font-extrabold text-white tracking-tight">BUTO<span class="text-aqua-400">FARM</span></span>
+                    </div>
+                    <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+                        Pusat budidaya ikan air tawar terpercaya. Menyediakan benih unggul dan ikan konsumsi segar Nila Merah, Mas, dan Gurame dengan garansi mutu terbaik.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Navigasi Halaman</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#beranda" class="hover:text-white transition">Beranda</a></li>
+                        <li><a href="#tentang" class="hover:text-white transition">Tentang Kami</a></li>
+                        <li><a href="#produk" class="hover:text-white transition">Jenis Ikan Unggulan</a></li>
+                        <li><a href="#keunggulan" class="hover:text-white transition">Keunggulan Budidaya</a></li>
+                        <li><a href="#galeri" class="hover:text-white transition">Galeri Kolam</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-4">Sosial Media</h4>
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-aqua-600 text-white flex items-center justify-center transition" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram text-base"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-aqua-600 text-white flex items-center justify-center transition" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f text-base"></i>
+                        </a>
+                        <a href="https://wa.me/6283874004986" target="_blank" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-aqua-600 text-white flex items-center justify-center transition" aria-label="WhatsApp">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-900 text-center text-xs text-slate-600">
+                &copy; 2026 BUTO FARM. All Rights Reserved. Budidaya Perikanan Air Tawar Terpadu.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Section -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Send WhatsApp order handler
+        function sendWhatsAppOrder(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('custName').value.trim();
+            const location = document.getElementById('custLocation').value.trim();
+            const fishType = document.getElementById('fishType').value;
+            const fishCategory = document.getElementById('fishCategory').value;
+            const fishQty = document.getElementById('fishQty').value;
+            const deliveryOption = document.getElementById('deliveryOption').value;
+            const notes = document.getElementById('custNotes').value.trim();
+
+            const message = `Halo Admin *BUTO FARM*, saya ingin memesan/bertanya terkait ikan air tawar:%0A%0A` +
+                `*Detail Pemesan:*%0A` +
+                `- Nama/Usaha: ${name}%0A` +
+                `- Lokasi Pengiriman: ${location}%0A%0A` +
+                `*Detail Pesanan:*%0A` +
+                `- Jenis Ikan: ${fishType}%0A` +
+                `- Kategori: ${fishCategory}%0A` +
+                `- Jumlah/Kuantitas: ${fishQty}%0A` +
+                `- Kondisi Pengiriman: ${deliveryOption}%0A` +
+                (notes ? `- Catatan Khusus: ${notes}%0A` : '') + `%0A` +
+                `Mohon informasi ketersediaan stok dan total harganya. Terima kasih!`;
+
+            const adminPhoneNumber = "6283874004986";
+            const whatsappUrl = `https://wa.me/${adminPhoneNumber}?text=${message}`;
+
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
